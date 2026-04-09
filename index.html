@@ -11,9 +11,9 @@
 
     <style>
         :root {
-            --cor-fundo: #D3C7AD;      /* Areia */
-            --cor-destaque: #6B6751;   /* Verde Opaco */
-            --cor-texto-claro: #754437; /* Terra Queimada */
+            --cor-fundo: #D3C7AD;
+            --cor-destaque: #6B6751;
+            --cor-texto-claro: #754437;
             --cor-texto-muted: #754437;
             --cor-cards: rgba(0, 0, 0, 0.05); 
         }
@@ -64,7 +64,6 @@
 
         .container { max-width: 1100px; margin: 0 auto; padding: 0 25px; width: 100%; }
 
-        /* --- MENU --- */
         nav {
             padding: 20px 50px;
             position: absolute; 
@@ -88,14 +87,11 @@
         }
         .nav-links a:hover { color: var(--cor-destaque); transform: translateY(-2px); display: inline-block; }
 
-        /* --- HERO --- */
         .hero { height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background: #000; }
         #bg-video { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; transform: translate(-50%, -50%); object-fit: cover; filter: brightness(0.5); }
 
-        /* --- SEÇÕES --- */
         section { padding: 80px 0; width: 100%; background-color: var(--cor-fundo); }
 
-        /* --- SOBRE MIM --- */
         #aboutme { margin-top: 60px; margin-bottom: 80px; } 
         .about-grid { display: grid; grid-template-columns: 0.6fr 1.4fr; gap: 50px; align-items: center; }
         .img-box-small { background: rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.1); height: 450px; border-radius: 4px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
@@ -104,7 +100,6 @@
         .mini-instagram-link:hover { opacity: 1; color: var(--cor-destaque); transform: translateY(-50%) scale(1.1); }
         .gold-line { width: 80px; height: 3px; background-color: var(--cor-destaque); margin-bottom: 25px; }
 
-        /* --- SERVIÇOS --- */
         .services-menu { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; text-align: center; }
         .service-item { 
             position: relative; 
@@ -140,7 +135,6 @@
         .submenu-list li { margin: 8px 0; transition: 0.3s; }
         .submenu-list li:hover { color: var(--cor-destaque); transform: translateX(5px); }
 
-        /* --- FEEDBACKS --- */
         .feedback-container { overflow: hidden; width: 100%; position: relative; }
         .feedback-track { display: flex; gap: 25px; padding: 50px 0; animation: scroll-continous 40s linear infinite; width: max-content; }
         .feedback-card { width: 300px; height: 450px; background: var(--cor-cards); border: 1px solid rgba(0,0,0,0.05); border-radius: 8px; overflow: hidden; }
@@ -148,7 +142,6 @@
 
         @keyframes scroll-continous { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* --- CONTATO --- */
         .contact-content { text-align: center; max-width: 750px; margin: 0 auto; }
         .contact-icons { display: flex; justify-content: center; gap: 80px; margin-top: 50px; }
         .contact-item { color: var(--cor-texto-claro); text-decoration: none; font-size: 50px; transition: 0.4s ease; }
@@ -168,7 +161,7 @@
 <body>
 
     <nav>
-        <img src="ever.png" alt="Ever Moments" class="brand-logo">
+        <img src="ever.png.PNG" alt="Ever Moments" class="brand-logo">
         <div class="nav-links">
             <a href="#aboutme">Sobre mim</a>
             <a href="#servicos">Serviços</a>
@@ -249,15 +242,14 @@
         </div>
         <div class="feedback-container">
             <div class="feedback-track">
-                <div class="feedback-card"><img src="print_1.jpg" alt="Feedback 1"></div>
-                <div class="feedback-card"><img src="print_2.jpg" alt="Feedback 2"></div>
-                <div class="feedback-card"><img src="print_3.jpg" alt="Feedback 3"></div>
-                <div class="feedback-card"><img src="print_4.jpg" alt="Feedback 4"></div>
-                
-                <div class="feedback-card"><img src="print_1.jpg" alt="Feedback 1"></div>
-                <div class="feedback-card"><img src="print_2.jpg" alt="Feedback 2"></div>
-                <div class="feedback-card"><img src="print_3.jpg" alt="Feedback 3"></div>
-                <div class="feedback-card"><img src="print_4.jpg" alt="Feedback 4"></div>
+                <div class="feedback-card"><img src="print_1.jpg" alt="Feedback"></div>
+                <div class="feedback-card"><img src="print_2.jpg" alt="Feedback"></div>
+                <div class="feedback-card"><img src="print_3.jpg" alt="Feedback"></div>
+                <div class="feedback-card"><img src="print_4.jpg" alt="Feedback"></div>
+                <div class="feedback-card"><img src="print_1.jpg" alt="Feedback"></div>
+                <div class="feedback-card"><img src="print_2.jpg" alt="Feedback"></div>
+                <div class="feedback-card"><img src="print_3.jpg" alt="Feedback"></div>
+                <div class="feedback-card"><img src="print_4.jpg" alt="Feedback"></div>
             </div>
         </div>
     </section>
