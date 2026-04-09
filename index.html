@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ever Moments | Filmmaker</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --cor-fundo: #D3C7AD;      /* Areia */
+            --cor-destaque: #6B6751;   /* Verde Opaco */
+            --cor-texto-claro: #754437; /* Terra Queimada */
+            --cor-texto-muted: #754437;
+            --cor-cards: rgba(0, 0, 0, 0.05); 
+        }
+
+        @font-face {
+            font-family: 'Dream Avenue';
+            src: url('DreamAvenue.ttf') format('truetype');
+            font-weight: normal; font-style: normal;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body { 
+            background-color: var(--cor-fundo); 
+            color: var(--cor-texto-muted); 
+            font-family: 'Montserrat', sans-serif; 
+            overflow-x: hidden; 
+            width: 100%;
+        }
+
+        h1, h2, h3, .nav-links a { 
+            font-family: 'Dream Avenue', serif; 
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+            color: var(--cor-texto-claro);
+        }
+
+        .mini-title { 
+            font-family: 'Montserrat', sans-serif; 
+            color: var(--cor-destaque); 
+            font-size: 11px; 
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        p, .submenu-list li, footer { 
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 300; 
+            line-height: 1.8; 
+            color: var(--cor-texto-muted); 
+            font-size: 14px;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 25px; width: 100%; }
+
+        /* --- MENU --- */
+        nav {
+            padding: 20px 50px;
+            position: absolute; 
+            width: 100%; 
+            top: 0; 
+            z-index: 100;
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(117, 68, 55, 0.3) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        .brand-logo { height: 45px; width: auto; object-fit: contain; }
+
+        .nav-links a { 
+            color: var(--cor-texto-claro); 
+            text-decoration: none; 
+            margin-left: 30px; 
+            font-size: 11px; 
+            transition: 0.3s ease; 
+        }
+        .nav-links a:hover { color: var(--cor-destaque); transform: translateY(-2px); display: inline-block; }
+
+        /* --- HERO --- */
+        .hero { height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background: #000; }
+        #bg-video { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; transform: translate(-50%, -50%); object-fit: cover; filter: brightness(0.5); }
+
+        /* --- SEÇÕES --- */
+        section { padding: 80px 0; width: 100%; background-color: var(--cor-fundo); }
+
+        /* --- SOBRE MIM --- */
+        #aboutme { margin-top: 60px; margin-bottom: 80px; } 
+        .about-grid { display: grid; grid-template-columns: 0.6fr 1.4fr; gap: 50px; align-items: center; }
+        .img-box-small { background: rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.1); height: 450px; border-radius: 4px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+        .img-box-small img { width: 100%; height: 100%; object-fit: cover; }
+        .mini-instagram-link { position: absolute; top: 50%; right: -40px; transform: translateY(-50%); font-size: 26px; color: var(--cor-texto-claro); opacity: 0.6; transition: 0.3s; text-decoration: none; z-index: 2; }
+        .mini-instagram-link:hover { opacity: 1; color: var(--cor-destaque); transform: translateY(-50%) scale(1.1); }
+        .gold-line { width: 80px; height: 3px; background-color: var(--cor-destaque); margin-bottom: 25px; }
+
+        /* --- SERVIÇOS --- */
+        .services-menu { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; text-align: center; }
+        .service-item { 
+            position: relative; 
+            padding: 50px 25px; 
+            background: var(--cor-cards); 
+            border: 1px solid rgba(0,0,0,0.05); 
+            transition: all 0.4s ease; 
+            cursor: pointer; 
+            border-radius: 6px; 
+        }
+        .service-item:hover { border-color: var(--cor-destaque); background: rgba(0,0,0,0.08); transform: translateY(-10px); }
+        .service-icon { font-size: 35px; color: var(--cor-texto-claro); margin-bottom: 20px; transition: 0.3s; }
+        .service-item:hover .service-icon { color: var(--cor-destaque); transform: scale(1.1); }
+
+        .service-submenu { 
+            position: absolute; 
+            top: 100%; 
+            left: 0; 
+            width: 100%; 
+            background: #D3C7AD; 
+            border: 1px solid var(--cor-destaque); 
+            padding: 20px; 
+            opacity: 0; 
+            visibility: hidden; 
+            transform: translateY(10px); 
+            transition: 0.4s ease; 
+            z-index: 10; 
+            border-radius: 0 0 6px 6px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+        }
+        .service-item:hover .service-submenu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .submenu-list { list-style: none; }
+        .submenu-list li { margin: 8px 0; transition: 0.3s; }
+        .submenu-list li:hover { color: var(--cor-destaque); transform: translateX(5px); }
+
+        /* --- FEEDBACKS --- */
+        .feedback-container { overflow: hidden; width: 100%; position: relative; }
+        .feedback-track { display: flex; gap: 25px; padding: 50px 0; animation: scroll-continous 40s linear infinite; width: max-content; }
+        .feedback-card { width: 300px; height: 450px; background: var(--cor-cards); border: 1px solid rgba(0,0,0,0.05); border-radius: 8px; overflow: hidden; }
+        .feedback-card img { width: 100%; height: 100%; object-fit: cover; }
+
+        @keyframes scroll-continous { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* --- CONTATO --- */
+        .contact-content { text-align: center; max-width: 750px; margin: 0 auto; }
+        .contact-icons { display: flex; justify-content: center; gap: 80px; margin-top: 50px; }
+        .contact-item { color: var(--cor-texto-claro); text-decoration: none; font-size: 50px; transition: 0.4s ease; }
+        .contact-item:hover { color: var(--cor-destaque); transform: translateY(-10px) scale(1.1); }
+
+        footer { padding: 50px 20px; text-align: center; font-size: 10px; color: var(--cor-texto-claro); opacity: 0.8; letter-spacing: 2px; text-transform: uppercase; }
+
+        @media (max-width: 768px) {
+            nav { padding: 15px 20px; }
+            .nav-links { display: none; }
+            .about-grid { grid-template-columns: 1fr; text-align: center; }
+            .gold-line { margin: 0 auto 20px; }
+            .services-menu { grid-template-columns: 1fr; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <img src="ever.png" alt="Ever Moments" class="brand-logo">
+        <div class="nav-links">
+            <a href="#aboutme">Sobre mim</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#feedbacks">Feedbacks</a>
+            <a href="#contato">Contato</a>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <video autoplay muted loop playsinline id="bg-video">
+            <source src="video-fundo.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <section id="aboutme" class="container">
+        <div class="about-grid">
+            <div class="about-photo-wrapper" data-aos="fade-right">
+                <div class="img-box-small">
+                    <img src="foto_sarah.jpg" alt="Sarah Andreassa">
+                </div>
+                <a href="https://www.instagram.com/sa.andreassa" target="_blank" class="mini-instagram-link">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+            <div class="about-content" data-aos="fade-left">
+                <span class="mini-title">MUITO PRAZER</span>
+                <h2 style="font-size: 45px; margin-bottom: 20px;">JUNTOS PODEMOS FAZER COISAS INCRÍVEIS</h2>
+                <div class="gold-line"></div>
+                <p>Meu nome é Sarah Andreassa, e minha paixão é transformar momentos em narrativas visuais poderosas. Com um olhar atento aos detalhes e à emoção, busco entregar não apenas um vídeo, mas uma experiência que possa ser revivida para sempre.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos" class="container">
+        <div style="text-align: center; margin-bottom: 50px;">
+            <h2 style="font-size: 35px;">Serviços</h2>
+        </div>
+        <div class="services-menu">
+            <div class="service-item">
+                <i class="fa-solid fa-heart service-icon"></i>
+                <h3>Casal</h3>
+                <div class="service-submenu">
+                    <ul class="submenu-list">
+                        <li>• Casamento</li>
+                        <li>• Pre-wedding</li>
+                        <li>• Pedidos</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="service-item">
+                <i class="fa-solid fa-champagne-glasses service-icon"></i>
+                <h3>Eventos</h3>
+                <div class="service-submenu">
+                    <ul class="submenu-list">
+                        <li>• 15 anos</li>
+                        <li>• Aniversários</li>
+                        <li>• Corporativo</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="service-item">
+                <i class="fa-solid fa-users service-icon"></i>
+                <h3>Família</h3>
+                <div class="service-submenu">
+                    <ul class="submenu-list">
+                        <li>• Chá Revelação</li>
+                        <li>• Batizados</li>
+                        <li>• Ensaios</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="feedbacks">
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h2 style="font-size: 35px;">Feedbacks</h2>
+        </div>
+        <div class="feedback-container">
+            <div class="feedback-track">
+                <div class="feedback-card"><img src="imagens/print_1.jpg" alt="Feedback"></div>
+                <div class="feedback-card"><img src="imagens/print_2.jpg" alt="Feedback"></div>
+                <div class="feedback-card"><img src="imagens/print_3.jpg" alt="Feedback"></div>
+                <div class="feedback-card"><img src="imagens/print_4.jpg" alt="Feedback"></div>
+                <div class="feedback-card"><img src="imagens/print_1.jpg" alt="Feedback"></div>
+                <div class="feedback-card"><img src="imagens/print_2.jpg" alt="Feedback"></div>
+                <div class="feedback-card"><img src="imagens/print_3.jpg" alt="Feedback"></div>
+                <div class="feedback-card"><img src="imagens/print_4.jpg" alt="Feedback"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="container">
+        <div class="contact-content">
+            <span class="mini-title">ENTRAR EM CONTATO</span>
+            <h2 style="font-size: 45px; margin-bottom: 20px;">VAMOS CONVERSAR?</h2>
+            <div class="contact-icons">
+                <a href="https://wa.me/5541997432940" target="_blank" class="contact-item"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com/ever.momentss" target="_blank" class="contact-item"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 EVER MOMENTS. Memórias que o tempo não apaga.
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 1200, once: true });</script>
+</body>
+</html>
