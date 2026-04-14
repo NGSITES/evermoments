@@ -118,27 +118,8 @@
             transform: translateY(-2px);
         }
 
-        /* --- SEÇÕES (Espaço Equilibrado) --- */
-        section { 
-            padding: 100px 0; 
-        }
-
-        /* --- SOBRE --- */
-        .insta-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--cor-marrom);
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 30px;
-            transition: var(--transicao);
-        }
-        
-        .insta-link:hover {
-            color: var(--cor-dourado);
-            transform: translateX(8px);
-        }
+        /* --- SEÇÕES --- */
+        section { padding: 100px 0; }
 
         .about-grid { 
             display: grid; 
@@ -192,6 +173,7 @@
         .feedback-section { 
             background-color: var(--cor-detalhe); 
             padding: 80px 0;
+            overflow: hidden;
         }
         
         .feedback-track { 
@@ -217,9 +199,8 @@
             100% { transform: translateX(-50%); }
         }
 
-        /* --- CONTATO --- */
+        /* --- REDES SOCIAIS --- */
         .social-links { margin-top: 30px; }
-        
         .social-links a { 
             display: inline-block;
             color: var(--cor-marrom); 
@@ -227,11 +208,7 @@
             margin: 0 15px; 
             transition: var(--transicao); 
         }
-
-        .social-links a:hover { 
-            color: var(--cor-dourado); 
-            transform: translateY(-5px) scale(1.1);
-        }
+        .social-links a:hover { color: var(--cor-dourado); transform: translateY(-5px); }
 
         /* --- WHATSAPP FLUTUANTE --- */
         .whatsapp-float {
@@ -249,7 +226,6 @@
             transition: var(--transicao);
             text-decoration: none;
         }
-        .whatsapp-float:hover { transform: scale(1.1) rotate(5deg); }
 
         /* --- FOOTER --- */
         footer {
@@ -258,20 +234,12 @@
             padding: 60px 0 30px;
             text-align: center;
         }
-        .footer-logo { height: 50px; filter: brightness(0) invert(1); margin-bottom: 25px; }
-        .copyright { margin-top: 30px; font-size: 10px; opacity: 0.5; letter-spacing: 1px; }
-
-        @media (max-width: 992px) {
-            .about-grid { gap: 40px; }
-            section { padding: 80px 0; }
-        }
 
         @media (max-width: 768px) {
             .about-grid { grid-template-columns: 1fr; }
             .nav-links { display: none; }
-            .hero-content h1 { font-size: 40px; }
+            .hero-content h1 { font-size: 38px; }
             .services-grid { grid-template-columns: 1fr; }
-            .img-box { height: 400px; }
         }
     </style>
 </head>
@@ -293,7 +261,7 @@
     </nav>
 
     <div class="hero" id="inicio">
-        <video autoplay muted loop playsinline id="bg-video">
+        <video autoplay muted loop playsinline webkit-playsinline id="bg-video">
             <source src="video-fundo.mp4" type="video/mp4">
         </video>
         <div class="hero-content" data-aos="fade-up">
@@ -314,15 +282,9 @@
             <div class="about-content" data-aos="fade-left">
                 <span class="mini-title">A alma por trás das lentes</span>
                 <h2 style="font-size: 40px; margin-bottom: 20px;">Sarah Andreassa</h2>
-                <p style="font-size: 16px; margin-bottom: 20px;">
-                    Minha paixão é transformar momentos em narrativas visuais poderosas. Acredito que cada detalhe carrega uma emoção única, e meu propósito é eternizá-los.
-                </p>
-                <p style="font-size: 16px;">
-                    Com um olhar sensível e técnico, busco entregar não apenas um vídeo, mas uma experiência sensorial que permita reviver seus momentos mais especiais sempre que desejar.
-                </p>
-                <a href="https://www.instagram.com/sa.andreassa" target="_blank" class="insta-link">
-                    <i class="fa-brands fa-instagram" style="font-size: 24px;"></i>
-                    <span>@sa.andreassa</span>
+                <p>Minha paixão é transformar momentos em narrativas visuais poderosas. Acredito que cada detalhe carrega uma emoção única.</p>
+                <a href="https://www.instagram.com/sa.andreassa" target="_blank" style="text-decoration: none; color: var(--cor-marrom); font-weight: bold; display: block; margin-top: 20px;">
+                    <i class="fa-brands fa-instagram"></i> @sa.andreassa
                 </a>
             </div>
         </div>
@@ -338,23 +300,17 @@
                 <div class="service-card" data-aos="fade-up">
                     <i class="fa-solid fa-heart"></i>
                     <h3>Casal</h3>
-                    <ul style="list-style: none; margin-top: 15px; font-size: 14px; opacity: 0.7;">
-                        <li>Filmes de Casamento • Pre-wedding</li>
-                    </ul>
+                    <p style="font-size: 14px; opacity: 0.7;">Filmes de Casamento • Pre-wedding</p>
                 </div>
                 <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                     <i class="fa-solid fa-champagne-glasses"></i>
                     <h3>Eventos</h3>
-                    <ul style="list-style: none; margin-top: 15px; font-size: 14px; opacity: 0.7;">
-                        <li>15 anos • Aniversários • Corporativo</li>
-                    </ul>
+                    <p style="font-size: 14px; opacity: 0.7;">15 anos • Corporativo</p>
                 </div>
                 <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                     <i class="fa-solid fa-camera-retro"></i>
                     <h3>Lifestyle</h3>
-                    <ul style="list-style: none; margin-top: 15px; font-size: 14px; opacity: 0.7;">
-                        <li>Chá Revelação • Batizados • Família</li>
-                    </ul>
+                    <p style="font-size: 14px; opacity: 0.7;">Família • Chá Revelação</p>
                 </div>
             </div>
         </div>
@@ -377,7 +333,7 @@
         </div>
     </section>
 
-    <section id="contato" class="container" style="text-align: center; padding: 100px 0;">
+    <section id="contato" class="container" style="text-align: center;">
         <div data-aos="zoom-in">
             <span class="mini-title">Contato</span>
             <h2 style="font-size: 42px; margin-bottom: 25px;">Vamos registrar sua história?</h2>
@@ -390,18 +346,39 @@
 
     <footer>
         <div class="container">
-            <img src="ever.png.PNG" alt="Ever Moments" class="footer-logo">
+            <img src="ever.png.PNG" alt="Ever Moments" class="footer-logo" style="height: 50px; filter: brightness(0) invert(1);">
             <p>EVER MOMENTS &copy; 2026</p>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Inicialização das animações
         AOS.init({ duration: 1000, once: true });
+
+        // Efeito do Navbar ao rolar
         window.addEventListener('scroll', function() {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) { nav.classList.add('scroll'); }
             else { nav.classList.remove('scroll'); }
+        });
+
+        // --- CORREÇÃO PARA O VÍDEO NO MOBILE ---
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('bg-video');
+            
+            // Tenta iniciar o vídeo automaticamente
+            let playPromise = video.play();
+
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.log("Autoplay bloqueado. Aguardando interação do usuário.");
+                    // Caso o navegador bloqueie, ele inicia no primeiro toque na tela
+                    document.body.addEventListener('touchstart', function() {
+                        video.play();
+                    }, { once: true });
+                });
+            }
         });
     </script>
 </body>
