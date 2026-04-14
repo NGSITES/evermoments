@@ -142,7 +142,20 @@
         }
         .img-box img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* --- SERVIÇOS (IGUAL AO PRINT) --- */
+        /* Estilo customizado para o link do Instagram no Sobre */
+        .insta-link-sobre {
+            color: var(--cor-marrom); 
+            text-decoration: none; 
+            font-weight: 600;
+            display: inline-block;
+            transition: 0.3s ease;
+        }
+        .insta-link-sobre:hover {
+            transform: translateY(-5px);
+            color: var(--cor-dourado);
+        }
+
+        /* --- SERVIÇOS --- */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -164,7 +177,6 @@
         .service-card i { font-size: 28px; color: var(--cor-marrom); margin-bottom: 20px; display: block; }
         .service-card h3 { margin-bottom: 15px; font-size: 24px; font-weight: 400; }
         
-        /* Descrição em linha única com pontos */
         .service-desc { 
             font-size: 13px; 
             color: #888; 
@@ -182,10 +194,10 @@
 
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* --- CONTATO UNIFORME (IGUAL AO SEGUNDO PRINT) --- */
+        /* --- CONTATO --- */
         .contact-section { 
             text-align: center; 
-            padding: 140px 0; /* Tamanho uniforme e equilibrado */
+            padding: 140px 0;
         }
 
         .social-links { margin-top: 40px; }
@@ -252,9 +264,11 @@
                 <p style="font-size: 17px; margin-bottom: 25px;">
                     Minha paixão é transformar momentos em narrativas visuais poderosas. Acredito que cada detalhe carrega uma emoção única, e meu propósito é eternizá-los.
                 </p>
-                <a href="https://www.instagram.com/sa.andreassa" target="_blank" style="color: var(--cor-marrom); text-decoration: none; font-weight: 600; border-bottom: 1px solid var(--cor-marrom);">
-                    <i class="fa-brands fa-instagram"></i> @sa.andreassa
-                </a>
+                <div data-aos="fade-up" data-aos-delay="200" style="margin-top: 20px;">
+                    <a href="https://www.instagram.com/sa.andreassa" target="_blank" class="insta-link-sobre">
+                        <i class="fa-brands fa-instagram"></i> @sa.andreassa
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -270,19 +284,19 @@
                 <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                     <i class="fa-solid fa-heart"></i>
                     <h3>Casal</h3>
-                    <p class="service-desc">Pedidos • Filmes de Casamento • Pre-wedding</p>
+                    <p class="service-desc">Filmes de Casamento • Pre-wedding</p>
                 </div>
 
                 <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                     <i class="fa-solid fa-champagne-glasses"></i>
                     <h3>Eventos</h3>
-                    <p class="service-desc">Festas • 15 anos • Corporativo</p>
+                    <p class="service-desc">15 anos • Corporativo</p>
                 </div>
 
                 <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                     <i class="fa-solid fa-camera-retro"></i>
                     <h3>Lifestyle</h3>
-                    <p class="service-desc">Família • Chá Revelação • Chá de Bebê</p>
+                    <p class="service-desc">Família • Chá Revelação</p>
                 </div>
             </div>
         </div>
@@ -303,7 +317,7 @@
 
     <section id="contato" class="container contact-section">
         <div data-aos="zoom-in">
-            <span class="mini-title">Contatos</span>
+            <span class="mini-title">Contato</span>
             <h2 style="font-size: clamp(35px, 5vw, 50px); margin-bottom: 35px; line-height: 1.2;">
                 Vamos registrar sua história?
             </h2>
