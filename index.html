@@ -194,13 +194,14 @@
             background: white;
             padding: 60px 30px;
             text-align: center;
-            border-radius: 0; 
+            border-radius: 0; /* Bordas retas ficam melhores para o efeito de desenho */
             position: relative;
             overflow: hidden;
             transition: 0.4s ease;
             cursor: default;
         }
 
+        /* Efeito de desenho de borda */
         .service-card::before, .service-card::after {
             content: '';
             position: absolute;
@@ -210,9 +211,19 @@
             z-index: 2;
         }
 
-        .service-card::before { top: 0; left: 0; }
-        .service-card::after { bottom: 0; right: 0; }
+        /* Lado Superior e Direito */
+        .service-card::before {
+            top: 0;
+            left: 0;
+        }
 
+        /* Lado Inferior e Esquerdo */
+        .service-card::after {
+            bottom: 0;
+            right: 0;
+        }
+
+        /* Animação ao passar o mouse */
         .service-card:hover::before {
             width: 100%;
             height: 100%;
@@ -290,26 +301,39 @@
         .footer-logo { height: 60px; filter: brightness(0) invert(1); margin-bottom: 30px; }
         .copyright { margin-top: 20px; font-size: 11px; opacity: 0.5; letter-spacing: 2px; }
 
-        /* AJUSTES MOBILE (SEM ALTERAR ESTRUTURA DO PC) */
+        /* ========================================================= */
+        /* --- AJUSTES EXCLUSIVOS PARA MOBILE (RESOLVENDO O TOPO) --- */
+        /* ========================================================= */
         @media (max-width: 992px) {
-            nav { padding: 15px 20px; }
-            .brand-logo { height: 35px; }
-
-            /* Links no topo sem sumir */
-            .nav-links { display: flex !important; }
-            .nav-links a { 
-                margin-left: 12px; 
-                font-size: 8px; 
-                letter-spacing: 1px;
+            /* Arrumando o menu topo para não ficar espremido */
+            nav {
+                flex-direction: column; /* Coloca a logo em cima e os links embaixo */
+                padding: 15px;
+                gap: 15px;
+            }
+            nav.scroll { padding: 10px 15px; }
+            .nav-links {
+                display: flex;
+                flex-wrap: wrap; /* Permite quebrar linha se precisar */
+                justify-content: center;
+                width: 100%;
+            }
+            .nav-links a {
+                margin: 5px 10px; /* Reduz margens enormes e distribui igual */
+                font-size: 10px;
             }
 
-            .about-grid, .services-grid { grid-template-columns: 1fr; gap: 50px; }
-            .img-box { height: 400px; box-shadow: 15px 15px 0px var(--cor-detalhe); }
-            
-            .hero-content h1 { font-size: 45px; }
+            /* Removendo os espaços gigantes e empilhando os blocos */
             section { padding: 60px 0; }
+            .about-grid, .services-grid { grid-template-columns: 1fr; gap: 40px; }
+            
+            .img-box { height: 400px; } /* Foto um pouco menor no celular */
+            
+            .contact-section { padding: 80px 0; }
+            .contact-section h2 { font-size: 32px !important; line-height: 1.3; }
+            .social-links a { margin: 0 15px; font-size: 35px; }
+            
             .whatsapp-float { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 25px; }
-            .social-links a { font-size: 35px; margin: 0 15px; }
         }
     </style>
 </head>
@@ -426,8 +450,10 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Inicialização do AOS
         AOS.init({ duration: 1200, once: true });
         
+        // Efeito do Navbar
         window.addEventListener('scroll', function() {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 80) nav.classList.add('scroll');
